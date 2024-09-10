@@ -9,7 +9,8 @@ from utils.download_imgs_from_urls import download_imgs_from_urls
 if __name__ == '__main__':
     # 需要爬取的bing.com/images网址
     # bing_img_url = "https://cn.bing.com/images/search?q=smartphone+on+the+desk&qs=n&form=QBIR&sp=-1&lq=0&pq=smartphone%20on%20the%20desk&sc=7-22&cvid=FB071787232E4B959DF4D4F6EF0F3F1B&ghsh=0&ghacc=0&first=1&cw=1903&ch=653"
-    bing_img_url = "https://www.bing.com/images/search?q=mobile+on+desk&qs=n&form=QBILPG&sp=-1&lq=0&pq=mobile+on+desk&sc=10-14&cvid=FBC7933A4ED345F28A47E0D8FF2FB8DD&ghsh=0&ghacc=0&first=1"
+    # bing_img_url = "https://www.bing.com/images/search?q=mobile+on+desk&qs=n&form=QBILPG&sp=-1&lq=0&pq=mobile+on+desk&sc=10-14&cvid=FBC7933A4ED345F28A47E0D8FF2FB8DD&ghsh=0&ghacc=0&first=1"
+    bing_img_url = "https://www.bing.com/images/search?q=phone%20on%20the%20desk&qs=SSA&form=QBIR&sp=1&lq=0&pq=phone%20on%20he%20desk&sc=9-16&cvid=E98CAD65D8B84650865A7C23A713FF1E&ghsh=0&ghacc=0&first=1"
     
     cwd = os.getcwd()
     imgs_folder = os.path.join(cwd, 'downloaded_imgs')

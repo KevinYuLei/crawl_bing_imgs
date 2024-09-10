@@ -32,12 +32,15 @@ def fetch_dynamic_content(url, save_file_path):
     driver.get(url)
 
     # 定位页面中用于展示图片的动态元素的CSS选择器
-    element_selector = "#mmComponent_images_1"
+    element_selector = "#mmComponent_images_2"
     
-    # 手动刷新页面确保能获取CSS选择器
-    keyboard.press_and_release('f5')
     # 短暂停顿0.5s
     time.sleep(0.5)
+    # 手动刷新页面确保能获取CSS选择器
+    keyboard.press_and_release('f5')
+    # 短暂停顿1s
+    time.sleep(1)
+    
 
     # 等待页面的初始加载，直到目标元素出现在页面中
     WebDriverWait(driver, 10).until(
