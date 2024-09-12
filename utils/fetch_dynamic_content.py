@@ -97,7 +97,7 @@ def fetch_dynamic_content(url, save_file_path):
                 actions.send_keys(Keys.F5).perform()
                 
                 # 随机睡眠一定时间，以防止爬虫检测
-                sleep_random_time(3, 8)
+                sleep_random_time(2, 5)
                 
                 img_element_selector = "#mainImageWindow > div.mainImage.wide.notbkg.current.curimgonview > div > div > div > img"
                 try:
