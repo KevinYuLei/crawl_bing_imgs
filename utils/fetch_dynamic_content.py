@@ -5,6 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
+from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from selenium.webdriver.common.keys import Keys
 
 from sleep_random_time import sleep_random_time
@@ -105,7 +106,7 @@ def fetch_dynamic_content(url, save_file_path):
                         EC.presence_of_element_located(
                             (By.CSS_SELECTOR, img_element_selector))
                     )
-                except:
+                except NoSuchElementException:
                     continue
 
                 img_element = driver.find_element(
