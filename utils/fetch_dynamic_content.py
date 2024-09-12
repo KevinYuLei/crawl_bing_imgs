@@ -73,6 +73,7 @@ def fetch_dynamic_content(url, save_file_path):
 
     urls_list = []
     count = 1
+    failed_count = 0
 
     parent_element = driver.find_element(By.CSS_SELECTOR, element_selector)
     ul_elements = parent_element.find_elements(By.XPATH, './ul')
@@ -102,12 +103,26 @@ def fetch_dynamic_content(url, save_file_path):
                 
                 img_element_selector = "#mainImageWindow > div.mainImage.wide.notbkg.current.curimgonview > div > div > div > img"
                 try:
+                    actions.send_keys(Keys.F5).perform()
                     WebDriverWait(driver, 10).until(
                         EC.presence_of_element_located(
                             (By.CSS_SELECTOR, img_element_selector))
                     )
-                except NoSuchElementException:
+                except (NoSuchElementException, TimeoutException) as e:
+                    print(f"捕获到异常: {e}")
+                    print(f"第{count}条图片数据获取失败.")
+                    count += 1
+                    failed_count += 1
+                    
+                    # 关闭当前标签页
+                    driver.close()
+
+                    # 切换回原始标签页
+                    driver.switch_to.window(tabs[0])
+                    actions.send_keys(Keys.ESCAPE).perform()
+                    time.sleep(0.01)
                     continue
+
 
                 img_element = driver.find_element(
                     By.CSS_SELECTOR, img_element_selector)
@@ -126,7 +141,8 @@ def fetch_dynamic_content(url, save_file_path):
                 count += 1
         # 关闭浏览器，释放资源
         driver.quit()
-        print(f"HTML内容已保存到 {save_filename} 文件中。")
+        print(f"Urls内容已保存到 {save_filename} 文件中。")
+        print(f"共爬取{count}条数据，其中爬取失败: {failed_count}条，存储成功：{len(urls_list)}条")
 
 
 if __name__ == '__main__':
