@@ -8,7 +8,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from selenium.webdriver.common.keys import Keys
 
-from sleep_random_time import sleep_random_time
+from utils.sleep_random_time import sleep_random_time
 
 
 def fetch_dynamic_content(url, save_file_path):

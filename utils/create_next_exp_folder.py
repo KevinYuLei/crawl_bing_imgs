@@ -12,7 +12,8 @@ def create_next_exp_folder(base_path):
             print(f"Created folder: {folder_path}!")
             return folder_path
         else:
-            print((f" Existed folder: {folder_path}!"))
+            # print((f"Existed folder: {folder_path}!"))
+            pass
         i += 1
 
 if __name__ == "__main__":
