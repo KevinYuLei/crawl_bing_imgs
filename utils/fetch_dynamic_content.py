@@ -96,6 +96,7 @@ def fetch_dynamic_content(url, save_file_path):
                 tabs = driver.window_handles
                 # 切换到新标签页
                 driver.switch_to.window(tabs[-1])
+                time.sleep(0.01)
                 actions.send_keys(Keys.F5).perform()
                 
                 # 随机睡眠一定时间，以防止爬虫检测

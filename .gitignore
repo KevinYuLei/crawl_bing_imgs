@@ -1,2 +1,4 @@
-downloaded_imgs
-runs
+/downloaded_imgs/*
+!/downloaded_imgs/.gitkeep
+/runs/*
+!/runs/.gitkeep
